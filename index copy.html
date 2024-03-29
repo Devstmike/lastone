@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=	, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/26aafe571c.js" crossorigin="anonymous"></script>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .customMadeWrapper{
+            display: flex;
+            align-items: center;
+            background-color: aliceblue;
+            padding: 20px;
+        }
+
+        .customMadeWrapper  > *{
+            width: 100%;
+            /* border: 1px solid; */
+            padding: 20px;
+            /* border-right: 1px solid gray; */
+        }
+
+        .customMadeWrapper  > *:not(:nth-child(3)){
+            border-right: 1px solid gray;
+        }
+
+        .customMadeWrapper > *:last-child{
+            background-color: #3F6F75;
+            padding: 20px;
+            width: 500px;
+            border-radius: 10px;
+            color: white;
+        }
+
+        .customMadeWrapper input, .customMadeWrapper select{
+            border: none;
+            display: inline-block;
+            width: 80%;
+            background-color: transparent;
+        }
+
+        .customMadeWrapper input:focus , .customMadeWrapper select:focus{
+            outline: none;
+
+  		}	
+
+    </style>
+</head>
+<body>
+    <script src="https://kit.fontawesome.com/26aafe571c.js" crossorigin="anonymous"></script>
+
+    <!-- search -->
+    <div class="customMadeWrapper">
+       <div class="jobSearch">
+           <i class="fa-solid fa-magnifying-glass"></i>
+           <input type="text" name="" id="" placeholder="Job title, Keywords..."  class="SearchBox" oninput = 'let RealsearchBox = document.querySelector(".jobSearch input").value;
+        if(RealsearchBox == ""){
+            document.querySelectorAll(".listing").forEach((element) => {
+                element.classList.remove("hideFilter")
+            })
+      }'>
+      <!-- oninput="document.querySelector('.listing').style.display = 'none'" -->	
+        </div>
+        <div class="city">
+            <i class="fa-solid fa-location-dot"></i>
+              <input type="text" name="" id="" placeholder="City or Post code" oninput='let RealsearchBox = document.querySelector(".city input").value;
+        if(RealsearchBox == ""){
+            document.querySelectorAll(".listing").forEach((element) => {
+                element.classList.remove("hideFilter")
+            })
+      }'>
+          </div>
+          <div class="categories">
+             <i class="fa-solid fa-briefcase"></i>
+             <select name="" id="">
+                    <option value="">All Categories</option>
+                </select>
+            </div>
+            <button onclick = '    document.querySelectorAll(".listing").forEach((element) => {
+            element.classList.remove("hideFilter")
+        })
+        found = false
+        document.querySelectorAll(".listing").forEach((element, index) => {
+        let searchText = document.querySelector(".jobSearch input").value;
+        let searchCity = document.querySelector(".city input").value;
+    
+        
+        // console.log(searchText)
+        
+            let myRegex = `/${searchText}/i`
+            // console.log("concatenate  = " + (element.innerText).toUpperCase() + " %% " + searchText.toUpperCase())
+            if(searchText != "" && searchCity == ""){    
+                console.log("job")
+                if(((element.innerText).toUpperCase()).search(searchText.toUpperCase()) >= 0){
+                    element.classList.remove("hideFilter")
+                    //  element.classList.add("bgC")
+                    found = false
+                //  console.log("found  = " + index + ")" +  (element.innerText).toUpperCase() + " %% " + searchText.toUpperCase())
+                console.log(((element.innerText).toUpperCase()).search(searchText.toUpperCase())) 
+                }else {
+                    element.classList.add("hideFilter")
+                    found = true
+                  }
+            } else if(searchCity != "" && searchText == ""){    
+                console.log("city")
+                if(((element.innerText).toUpperCase()).search(searchCity.toUpperCase()) >= 0){
+                    element.classList.remove("hideFilter")
+                    //  element.classList.add("bgC")
+                    found = false
+                //  console.log("found  = " + index + ")" +  (element.innerText).toUpperCase() + " %% " + searchText.toUpperCase())
+                console.log(((element.innerText).toUpperCase()).search(searchCity.toUpperCase())) 
+                }else {
+                    element.classList.add("hideFilter")
+                    found = true
+                  }
+            } else if(searchCity != "" && searchText != ""){
+                    if(((element.innerText).toUpperCase()).search(searchCity.toUpperCase()) >= 0 && ((element.innerText).toUpperCase()).search(searchText.toUpperCase()) >= 0){
+                        element.classList.remove("hideFilter")
+                        //  element.classList.add("bgC")
+                        found = false
+                    //  console.log("found  = " + index + ")" +  (element.innerText).toUpperCase() + " %% " + searchText.toUpperCase())
+                    console.log(((element.innerText).toUpperCase()).search(searchCity.toUpperCase())) 
+                    }else {
+                        element.classList.add("hideFilter")
+                        found = true
+                    }
+            }
+    
+             
+        })  
+    '>Find Jobs</button>
+        </div>
+    
+    
+    <strong> </strong><strong><script  src="https://theapplicantmanager.com/jobfeeds/by.js"></script></strong>    
+</body>
+</html>  
