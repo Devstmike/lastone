@@ -228,13 +228,27 @@ searchButton.onclick = () => {
     
         let myRegex = `/${searchText}/i`
         // console.log("concatenate  = " + (element.innerText).toUpperCase() + " %% " + searchText.toUpperCase())
-        if(searchText != ""){
+        if(searchText != "" && searchCity != "all"){
             // if(searchText != "" && ){
                 if(((element.innerText).toUpperCase()).search(searchCity.toUpperCase()) >= 0 && ((element.innerText).toUpperCase()).search(searchText.toUpperCase()) >= 0){
                     element.classList.remove("hideFilter")
                     //  element.classList.add("bgC")
                     found = false
-                  console.log("found  = " + index + ")" +  (element.innerText).toUpperCase() + " %% " + searchCity.toUpperCase())
+                //   console.log("found  = " + index + ")" +  (element.innerText).toUpperCase() + " %% " ""+ searchCity.toUpperCase())
+                console.log(((element.innerText).toUpperCase()).search(searchCity.toUpperCase())) 
+                }else {
+                    element.classList.add("hideFilter")
+                    found = true
+                // }
+            }
+
+        } else  if(searchText != "" && searchCity == "all"){
+            // if(searchText != "" && ){
+                if(((element.innerText).toUpperCase()).search(searchText.toUpperCase()) >= 0){
+                    element.classList.remove("hideFilter")
+                    //  element.classList.add("bgC")
+                    found = false
+                  console.log("found  = " + index + ")" +  (element.innerText).toUpperCase())
                 console.log(((element.innerText).toUpperCase()).search(searchCity.toUpperCase())) 
                 }else {
                     element.classList.add("hideFilter")

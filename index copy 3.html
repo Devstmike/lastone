@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=	, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/26aafe571c.js" crossorigin="anonymous"></script>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .customMadeWrapper{
+            display: flex;
+            align-items: center;
+            background-color: aliceblue;
+            padding: 20px;
+        }
+
+        .customMadeWrapper  > *{
+            width: 100%;
+            /* border: 1px solid; */
+            padding: 20px;
+            /* border-right: 1px solid gray; */
+        }
+
+        .customMadeWrapper  > *:not(:nth-child(3)){
+            border-right: 1px solid gray;
+        }
+
+        .customMadeWrapper > *:last-child{
+            background-color: #3F6F75;
+            padding: 20px;
+            width: 500px;
+            border-radius: 10px;
+            color: white;
+        }
+
+        .customMadeWrapper input, .customMadeWrapper select{
+            border: none;
+            display: inline-block;
+            width: 80%;
+            background-color: transparent;
+        }
+
+        .customMadeWrapper input:focus , .customMadeWrapper select:focus{
+            outline: none;
+
+  		}	
+
+    </style>
+</head>
+<body>
+   <div id="theapplicantmanager">
+        <div class="listing">
+
+        </div>
+    </div>  
+    <div class="customMadeWrapper">
+        <div class="jobSearch">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="search" name="" id="" placeholder="Job title, Keywords..." oninput="document.querySelector('.jobSearch input').style.backgroundColor = 'red'">
+        </div>
+        <div class="countries">
+            <select name="" id="Countries" onchange='
+            let currentCountry = document.getElementById("Countries").value
+            if(currentCountry == "united States"){
+                document.getElementById("Usa").classList.remove("hideFilter")
+                document.getElementById("canada").classList.add("hideFilter")
+                document.getElementById("mexico").classList.add("hideFilter") 
+                document.getElementById("allStates").classList.add("hideFilter")
+                console.log("us")  
+                console.log(document.getElementById("Countries").value + "1")      
+            }else if(currentCountry  == "Mexico"){
+                document.getElementById("Usa").classList.add("hideFilter")
+                document.getElementById("canada").classList.add("hideFilter")
+                document.getElementById("mexico").classList.remove("hideFilter")
+                document.getElementById("allStates").classList.add("hideFilter")
+                console.log("mexico")       
+                console.log(document.getElementById("Countries").value + "1")      
+
+            } else if(currentCountry == "Canada"){
+                document.getElementById("Usa").classList.add("hideFilter")
+                document.getElementById("canada").classList.remove("hideFilter")
+                document.getElementById("mexico").classList.add("hideFilter")
+                document.getElementById("allStates").classList.add("hideFilter")
+                console.log("canada")     
+                console.log(document.getElementById("Countries").value + "1")      
+
+            } else if(currentCountry == "All"){
+                document.getElementById("Usa").classList.add("hideFilter")
+                document.getElementById("canada").classList.add("hideFilter")
+                document.getElementById("mexico").classList.add("hideFilter")
+                document.getElementById("allStates").classList.remove("hideFilter")
+            }' >
+                <!-- <option value="" >Select Country</option> -->
+                <option value="All" selected>All Countries</option>
+                <option value="united States">united States</option>
+                <option value="Mexico">Mexico</option>
+                <option value="Canada">Canada</option>
+            </select>
+        </div>
+        <div class="city">
+            <i class="fa-solid fa-location-dot"></i>
+            <!-- <select name="" id="allStates">
+                <option value="">All States</option>
+            </select> -->
+            <select name="" id="Usa" class="hideFilter">
+                <!-- <option >Select state</option> -->
+                <option value="all" selected>Select State</option>
+                <!-- <option value="All US">All State</option> -->
+                <option value =', AL' >ALABAMA (AL)</option>
+                <option value =', AK' >ALASKA (AK)</option>
+                <option value =', AR' >ARKANSAS (AR)</option>
+                <option value =', AZ' >ARIZONA (AZ)</option>
+                <option value =', CA' >CALIFORNIA (CA)</option>
+                <option value =', CO' >COLORADO (CO)</option>
+                <option value =', CT' >CONNECTICUT (CT)</option>
+                <option value =', DC' >DISTRICT OF COLUMBIA (DC)</option>
+                <option value =', DE' >DELAWARE (DE)</option>
+                <option value =', FL' >FLORIDA (FL)</option>
+                <option value =', GA' >GEORGIA (GA)</option>
+                <option value =', HI' >HAWAII (HI)</option>
+                <option value =', IA' >IOWA (IA)</option>
+                <option value =', ID' >IDAHO (ID)</option>
+                <option value =', IL' >ILLINOIS (IL)</option>
+                <option value =', IN' >INDIANA (IN)</option>
+                <option value =', KS' >KANSAS (KS)</option>
+                <option value =', KY' >KENTUCKY (KY)</option>
+                <option value =', LA' >LOUISIANA (LA)</option>
+                <option value =', MA' >MASSACHUSETTS (MA)</option>
+                <option value =', MD' >MARYLAND (MD)</option>
+                <option value =', ME' >MAINE (ME)</option>
+                <option value =', MI' >MICHIGAN (MI)</option>
+                <option value =', MN' >MINNESOTA (MN)</option>
+                <option value =', MO' >MISSOURI (MO)</option>
+                <option value =', MS' >MISSISSIPPI (MS)</option>
+                <option value =', MT' >MONTANA (MT)</option>
+                <option value =', NC' >NORTH CAROLINA (NC)</option>
+                <option value =', ND' >NORTH DAKOTA (ND)</option>
+                <option value =', NE' >NEBRASKA (NE)</option>
+                <option value =', NH' >NEW HAMPSHIRE (NH)</option>
+                <option value =', NJ' >NEW JERSEY (NJ)</option>
+                <option value =', NM' >NEW MEXICO (NM)</option>
+                <option value =', NV' >NEVADA (NV)</option>
+                <option value =', NY' >NEW YORK (NY)</option>
+                <option value =', OH' >OHIO (OH)</option>
+                <option value =', OK' >OKLAHOMA (OK)</option>
+                <option value =', OR' >OREGON (OR)</option>
+                <option value =', PA' >PENNSYLVANIA (PA)</option>
+                <option value =', RI' >RHODE ISLAND (RI)</option>
+                <option value =', SC' >SOUTH CAROLINA (SC)</option>
+                <option value =', SD' >SOUTH DAKOTA (SD)</option>
+                <option value =', TN' >TENNESSEE (TN)</option>
+                <option value =', TX' >TEXAS (TX)</option>
+                <option value =', UT' >UTAH (UT)</option>
+                <option value =', VA' >VIRGINIA (VA)</option>
+                <option value =', VT' >VERMONT (VT)</option>
+                <option value =', WA' >WASHINGTON (WA)</option>
+                <option value =', WI' >WISCONSIN (WI)</option>
+                <option value =', WV' >WEST VIRGINIA (WV)</option>
+                <option value =', WY' >WYOMING (WY)</option>
+            </select>
+            <select name="" id="canada" class="hideFilter">`
+                <option selected value="all">Select Province</option>
+                <!-- <option value="All Province">All Province</option> -->
+                <option value =', AB' >AB (Alberta)</option>
+                <option value =', BC' >BC (British Columbia)</option>
+                <option value =', MB' >MB (Manitoba)</option>
+                <option value =', NB' >NB (New Brunswick)</option>
+                <option value =', NL' >NL (Newfoundland and Labrador)</option>
+                <option value =', NT' >NT (Northwest Territories)</option>
+                <option value =', NS' >NS (Nova Scotia)</option>
+                <option value =', NU' >NU (Nunavut)</option>
+                <option value =', ON' >ON (Ontario)</option>
+                <option value =', PE' >PE (Prince Edward Island)</option>
+                <option value =', QC' >QC (Quebec)</option>
+                <option value =', SK' >SK (Saskatchewan)</option>
+                <option value =', YT' >YT (Yukon)</option>
+            </select>
+            <select name="" id="mexico" class="hideFilter">
+                <option selected value="all">Select State</option>
+                <!-- <option value="All Mex">All State</option> -->
+                <option value =', AG' >AGUASCALIENTES (AG)</option>
+                <option value =', BN' >BAJA CALIFORNIA NORTE (BN)</option>
+                <option value =', BS' >BAJA CALIFORNIA SUR (BS)</option>
+                <option value =', CH' >COAHUILA (CH)</option>
+                <option value =', CI' >CHIHUAHUA (CI)</option>
+                <option value =', CL' >COLIMA (CL)</option>
+                <option value =', CP' >CAMPECHE (CP)</option>
+                <option value =', CS' >CHIAPAS (CS)</option>
+                <option value =', DF' >DISTRICTO FEDERAL (DF)</option>
+                <option value =', DG' >DURANGO (DG)</option>
+                <option value =', GE' >GUERRERO (GE)</option>
+                <option value =', GJ' >GUANAJUATO (GJ)</option>
+                <option value =', HD' >HIDALGO (HD)</option>
+                <option value =', JA' >JALISCO (JA)</option>
+                <option value =', MC' >MICHOACAN (MC)</option>
+                <option value =', MR' >MORELOS (MR)</option>
+                <option value =', MX' >MEXICO (MX)</option>
+                <option value =', NA' >NAYARIT (NA)</option>
+                <option value =', NL' >NUEVO LEON (NL)</option>
+                <option value =', OA' >OAXACA (OA)</option>
+                <option value =', PU' >PUEBLA (PU)</option>
+                <option value =', QE' >QUERETARO (QE)</option>
+                <option value =', QI' >QUINTANA ROO (QI)</option>
+                <option value =', SI' >SINALOA (SI)</option>
+                <option value =', SL' >SAN LUIS POTOSI (SL)</option>
+                <option value =', SO' >SONORA (SO)</option>
+                <option value =', TA' >TAMAULIPAS (TA)</option>
+                <option value =', TB' >TABASCO (TB)</option>
+                <option value =', TL' >TLAXCALA (TL)</option>
+                <option value =', VC' >VERACRUZ (VC)</option>
+                <option value =', YU' >YUCATAN (YU)</option>
+                <option value =', ZA' >ZACATECAS (ZA)</option>
+            </select>
+        </div>
+        <div class="categories">
+            <i class="fa-solid fa-briefcase"></i>
+            <select name="" id="">
+                <option value="">All Categories</option>
+            </select>
+        </div>
+        <button>Find Jobs</button>
+    </div>
+    <strong> </strong><strong><script  src="https://theapplicantmanager.com/jobfeeds/by.js"></script></strong>
+
+    <!-- <script>
+        let a = document.querySelector(".customMadeWrapper .jobSearch input");
+        a.addEventListener("input", SearchJob)
+        function SearchJob(){
+            console.log("jejkd")
+        }
+    // </script> -->
+</body>
+</html>  
